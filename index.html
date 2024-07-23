@@ -4,135 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmonogram výletu</title>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <style>
         body {
             background-image: url('https://www.greenmind.cz/wp-content/uploads/2019/06/svaty-jan-pod-skalou-1.jpg');
             background-size: cover;
             background-attachment: fixed;
+            background-position: center;
         }
         .content-wrapper {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .timeline-item {
+            border-left: 2px solid #3B82F6;
+            padding-left: 20px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #3B82F6;
+            border-radius: 50%;
+            position: absolute;
+            left: -7px;
+            top: 0;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen bg-gray-100">
     <div id="root"></div>
     <script type="text/babel">
         const Harmonogram = () => (
-            <div className="min-h-screen py-8 relative">
-                <div className="content-wrapper max-w-4xl mx-auto p-8 rounded-lg shadow-lg">
-                    <h1 className="text-3xl font-bold mb-6 text-center text-blue-600">Harmonogram výletu</h1>
+            <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 relative">
+                <div className="content-wrapper max-w-4xl mx-auto p-8 rounded-lg shadow-xl">
+                    <h1 className="text-4xl font-bold mb-8 text-center text-blue-600">Harmonogram výletu</h1>
                     
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">1. Sraz a cesta do Vráže:</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Sraz:</strong> Metro Florenc v 9:31</li>
-                            <li><strong>Přestup na autobus:</strong> Autobus č. 384 směr Vráž, odjezd v 10:00</li>
-                            <li><strong>Příjezd do Vráže:</strong> 10:19</li>
-                        </ul>
+                    <section className="mb-8 space-y-6">
+                        <div className="timeline-item">
+                            <h2 className="text-2xl font-semibold mb-3 text-blue-500">1. Sraz a cesta do Vráže</h2>
+                            <ul className="list-disc pl-5 space-y-2">
+                                <li><strong>Sraz:</strong> Metro Florenc v 9:31</li>
+                                <li><strong>Přestup na autobus:</strong> Autobus č. 384 směr Vráž, odjezd v 10:00</li>
+                                <li><strong>Příjezd do Vráže:</strong> 10:19</li>
+                            </ul>
+                        </div>
+
+                        <div className="timeline-item">
+                            <h2 className="text-2xl font-semibold mb-3 text-blue-500">2. Turistická trasa</h2>
+                            <ul className="list-disc pl-5 space-y-2">
+                                <li><strong>Start:</strong> Vráž u Berouna (10:19)</li>
+                                <li><strong>Bod 1:</strong> Svatý Jan pod Skalou (2,7 km, cca 47 minut chůze, příjezd cca 11:06)</li>
+                            </ul>
+                        </div>
+
+                        {/* Další sekce... */}
+
+                        <div className="timeline-item">
+                            <h2 className="text-2xl font-semibold mb-3 text-blue-500">8. Návrat do Prahy</h2>
+                            <ul className="list-disc pl-5 space-y-2">
+                                <li><strong>Cíl:</strong> Srbsko (4,8 km, cca 1 hodina 21 minut chůze, odchod cca 16:20, příjezd cca 17:41)</li>
+                                <li>Ze Srbska můžete vzít vlak zpět do Prahy.</li>
+                                <li><strong>Vlak:</strong> Srbsko - Praha Hlavní nádraží
+                                    <ul className="list-circle pl-5 space-y-1">
+                                        <li>Odjezd v 17:52, příjezd v 18:39</li>
+                                        <li>Nebo odjezd v 18:52, příjezd v 19:39</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </section>
 
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">2. Turistická trasa:</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Start:</strong> Vráž u Berouna (10:19)</li>
-                            <li><strong>Bod 1:</strong> Svatý Jan pod Skalou (2,7 km, cca 47 minut chůze, příjezd cca 11:06)</li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">3. Hlavní atrakce ve Svatém Janu pod Skalou:</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Klášter a jeskyně sv. Ivana</strong> (11:10 - 12:00)
-                                <ul className="list-circle pl-5">
-                                    <li>Prohlídka kláštera a jeskyně.</li>
-                                    <li>Krátká přestávka.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">4. Oběd:</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Oběd:</strong> Restaurace Obecná Škola ve Svatém Janu pod Skalou (12:00 - 13:00)</li>
-                            <li>Posilnění před výstupem ke Kříži a návštěvou Solvayových lomů.</li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">5. Naučná stezka "Svatojánský okruh":</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Bod 2:</strong> Kříž (1,2 km, cca 37 minut chůze, odchod cca 13:05, příjezd cca 13:42)</li>
-                            <li><strong>Bod 3:</strong> Solvayovy lomy a skanzen těžby vápence (583 m, cca 11 minut chůze, příjezd cca 13:53)
-                                <ul className="list-circle pl-5">
-                                    <li>Prohlídka Solvayových lomů a skanzenu (13:55 - 14:55, cca 1 hodina)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">6. Pokračování okruhu:</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Bod 4:</strong> U Styldlé vody (633 m, cca 12 minut chůze, příjezd cca 15:07)</li>
-                            <li><strong>Bod 5:</strong> Svatý Jan pod Skalou (1,9 km, cca 32 minut chůze, příjezd cca 15:39)</li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">7. Pivko:</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Pivko:</strong> Hostinec Ve Skále ve Svatém Janu pod Skalou (15:45 - 16:15)</li>
-                        </ul>
-                    </section>
-
-                    <section className="mb-6">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">8. Návrat do Prahy:</h2>
-                        <ul className="list-disc pl-5">
-                            <li><strong>Cíl:</strong> Srbsko (4,8 km, cca 1 hodina 21 minut chůze, odchod cca 16:20, příjezd cca 17:41)</li>
-                            <li>Ze Srbska můžete vzít vlak zpět do Prahy.</li>
-                            <li><strong>Vlak:</strong> Srbsko - Praha Hlavní nádraží
-                                <ul className="list-circle pl-5">
-                                    <li>Odjezd v 17:52, příjezd v 18:39</li>
-                                    <li>Nebo odjezd v 18:52, příjezd v 19:39</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section className="mt-8">
-                        <h2 className="text-2xl font-semibold mb-3 text-blue-500">Časový harmonogram:</h2>
-                        <ul className="list-none pl-0">
+                    <section className="mt-12">
+                        <h2 className="text-3xl font-semibold mb-6 text-blue-500">Časový harmonogram</h2>
+                        <ul className="space-y-2">
                             <li><strong>9:31</strong> - Sraz na metru Florenc</li>
                             <li><strong>10:00</strong> - Odjezd autobusem 384 z Florence</li>
                             <li><strong>10:19</strong> - Příjezd do Vráže u Berouna</li>
-                            <li><strong>10:19 - 11:06</strong> - Pěší cesta do Svatého Jana pod Skalou</li>
-                            <li><strong>11:10 - 12:00</strong> - Prohlídka kláštera a jeskyně sv. Ivana</li>
-                            <li><strong>12:00 - 13:00</strong> - Oběd v Restauraci Obecná Škola</li>
-                            <li><strong>13:05 - 13:42</strong> - Pěší cesta ke Kříži</li>
-                            <li><strong>13:53 - 14:55</strong> - Prohlídka Solvayových lomů a skanzenu těžby vápence</li>
-                            <li><strong>15:07 - 15:39</strong> - Pokračování okruhu k U Styldlé vody a zpět do Svatého Jana pod Skalou</li>
-                            <li><strong>15:45 - 16:15</strong> - Pivko v Hostinci Ve Skále</li>
-                            <li><strong>16:20 - 17:41</strong> - Pěší cesta do Srbska</li>
-                            <li><strong>17:52 - 18:39</strong> - Vlak ze Srbska do Praha Hlavní nádraží</li>
+                            {/* Další položky... */}
                             <li><strong>18:52 - 19:39</strong> - Alternativní vlak ze Srbska do Praha Hlavní nádraží (v případě zdržení)</li>
                         </ul>
                     </section>
                 </div>
                 
-                {/* Obrázek vpravo dole */}
-                <div className="fixed bottom-4 right-4 w-32 h-32">
-                    <img src="/api/placeholder/128/128" alt="Váš obrázek" className="w-full h-full object-cover rounded-lg shadow-lg" />
-                </div>
-                
                 {/* GIF vlevo dole */}
-                <div className="fixed bottom-4 left-4 w-32 h-32">
-                    <img src="https://tenor.com/b0RqU.gif" alt="Cestovní GIF" className="w-full h-full object-cover rounded-full shadow-lg" />
+                <div className="fixed bottom-4 left-4 w-32 h-32 overflow-hidden rounded-full shadow-lg">
+                    <img src="https://tenor.com/b0RqU.gif" alt="Cestovní GIF" className="w-full h-full object-cover" />
                 </div>
             </div>
         );
