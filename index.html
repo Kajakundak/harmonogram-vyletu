@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonogram výletu</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const Harmonogram = () => (
+            <div className="bg-gray-100 p-4 rounded-lg shadow-lg max-w-2xl mx-auto font-sans">
+                <h1 className="text-2xl font-bold mb-4 text-center text-blue-600">Harmonogram výletu</h1>
+                
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">1. Sraz a cesta do Vráže:</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Sraz:</strong> Metro Florenc v 9:31</li>
+                        <li><strong>Přestup na autobus:</strong> Autobus č. 384 směr Vráž, odjezd v 10:00</li>
+                        <li><strong>Příjezd do Vráže:</strong> 10:19</li>
+                    </ul>
+                </section>
+
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">2. Turistická trasa:</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Start:</strong> Vráž u Berouna (10:19)</li>
+                        <li><strong>Bod 1:</strong> Svatý Jan pod Skalou (2,7 km, cca 47 minut chůze, příjezd cca 11:06)</li>
+                    </ul>
+                </section>
+
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">3. Hlavní atrakce ve Svatém Janu pod Skalou:</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Klášter a jeskyně sv. Ivana</strong> (11:10 - 12:00)
+                            <ul className="list-circle pl-5">
+                                <li>Prohlídka kláštera a jeskyně.</li>
+                                <li>Krátká přestávka.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">4. Oběd:</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Oběd:</strong> Restaurace Obecná Škola ve Svatém Janu pod Skalou (12:00 - 13:00)</li>
+                        <li>Posilnění před výstupem ke Kříži a návštěvou Solvayových lomů.</li>
+                    </ul>
+                </section>
+
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">5. Naučná stezka "Svatojánský okruh":</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Bod 2:</strong> Kříž (1,2 km, cca 37 minut chůze, odchod cca 13:05, příjezd cca 13:42)</li>
+                        <li><strong>Bod 3:</strong> Solvayovy lomy a skanzen těžby vápence (583 m, cca 11 minut chůze, příjezd cca 13:53)
+                            <ul className="list-circle pl-5">
+                                <li>Prohlídka Solvayových lomů a skanzenu (13:55 - 14:55, cca 1 hodina)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">6. Pokračování okruhu:</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Bod 4:</strong> U Styldlé vody (633 m, cca 12 minut chůze, příjezd cca 15:07)</li>
+                        <li><strong>Bod 5:</strong> Svatý Jan pod Skalou (1,9 km, cca 32 minut chůze, příjezd cca 15:39)</li>
+                    </ul>
+                </section>
+
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">7. Pivko:</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Pivko:</strong> Hostinec Ve Skále ve Svatém Janu pod Skalou (15:45 - 16:15)</li>
+                    </ul>
+                </section>
+
+                <section className="mb-4">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">8. Návrat do Prahy:</h2>
+                    <ul className="list-disc pl-5">
+                        <li><strong>Cíl:</strong> Srbsko (4,8 km, cca 1 hodina 21 minut chůze, odchod cca 16:20, příjezd cca 17:41)</li>
+                        <li>Ze Srbska můžete vzít vlak zpět do Prahy.</li>
+                        <li><strong>Vlak:</strong> Srbsko - Praha Hlavní nádraží
+                            <ul className="list-circle pl-5">
+                                <li>Odjezd v 17:52, příjezd v 18:39</li>
+                                <li>Nebo odjezd v 18:52, příjezd v 19:39</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section className="mt-6">
+                    <h2 className="text-xl font-semibold mb-2 text-blue-500">Časový harmonogram:</h2>
+                    <ul className="list-none pl-0">
+                        <li><strong>9:31</strong> - Sraz na metru Florenc</li>
+                        <li><strong>10:00</strong> - Odjezd autobusem 384 z Florence</li>
+                        <li><strong>10:19</strong> - Příjezd do Vráže u Berouna</li>
+                        <li><strong>10:19 - 11:06</strong> - Pěší cesta do Svatého Jana pod Skalou</li>
+                        <li><strong>11:10 - 12:00</strong> - Prohlídka kláštera a jeskyně sv. Ivana</li>
+                        <li><strong>12:00 - 13:00</strong> - Oběd v Restauraci Obecná Škola</li>
+                        <li><strong>13:05 - 13:42</strong> - Pěší cesta ke Kříži</li>
+                        <li><strong>13:53 - 14:55</strong> - Prohlídka Solvayových lomů a skanzenu těžby vápence</li>
+                        <li><strong>15:07 - 15:39</strong> - Pokračování okruhu k U Styldlé vody a zpět do Svatého Jana pod Skalou</li>
+                        <li><strong>15:45 - 16:15</strong> - Pivko v Hostinci Ve Skále</li>
+                        <li><strong>16:20 - 17:41</strong> - Pěší cesta do Srbska</li>
+                        <li><strong>17:52 - 18:39</strong> - Vlak ze Srbska do Praha Hlavní nádraží</li>
+                        <li><strong>18:52 - 19:39</strong> - Alternativní vlak ze Srbska do Praha Hlavní nádraží (v případě zdržení)</li>
+                    </ul>
+                </section>
+            </div>
+        );
+
+        ReactDOM.render(<Harmonogram />, document.getElementById('root'));
+    </script>
+</body>
+</html>
