@@ -11,15 +11,20 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <style>
+        @keyframes backgroundZoom {
+            0% { background-size: 100%; }
+            50% { background-size: 110%; }
+            100% { background-size: 100%; }
+        }
         body {
             background-image: url('https://www.greenmind.cz/wp-content/uploads/2019/06/svaty-jan-pod-skalou-1.jpg');
             background-size: cover;
-            background-attachment: fixed;
             background-position: center;
+            animation: backgroundZoom 20s ease-in-out infinite;
         }
         .content-wrapper {
             background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
         }
         .timeline-item {
             border-left: 2px solid #3B82F6;
@@ -159,9 +164,13 @@
                         <div className="tenor-gif-embed" data-postid="27335722" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
                     </div>
 
-                    {/* Placeholder obrázek vpravo dole */}
+                    {/* Váš vlastní obrázek z GitHubu vpravo dole */}
                     <div className="fixed bottom-4 right-4 w-32 h-32">
-                        <img src="/api/placeholder/128/128" alt="Váš obrázek" className="w-full h-full object-cover rounded-lg shadow-lg" />
+                        <img 
+                            src="https://raw.githubusercontent.com/Kaja/harmonogram-vyletu/main/received_10217090421400984.jpg" 
+                            alt="Váš obrázek" 
+                            className="w-full h-full object-cover rounded-lg shadow-lg" 
+                        />
                     </div>
                 </div>
             );
