@@ -54,28 +54,6 @@
             aspect-ratio: 400 / 280;
             margin: 0 auto;
         }
-        .header-container, .footer-container {
-            position: fixed;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.7);
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-            z-index: 1;
-        }
-        .header-container {
-            top: 50%;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        .footer-container {
-            bottom: 20px;
-        }
-        .header-hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-100">
@@ -91,13 +69,11 @@
                 const handleScroll = () => {
                     const scrollPosition = window.scrollY;
                     const windowHeight = window.innerHeight;
-                    const headerContainer = document.querySelector('.header-container');
+                    const bodyHeight = document.body.offsetHeight;
+                    const scrollPercentage = (scrollPosition / (bodyHeight - windowHeight)) * 100;
                     
-                    if (scrollPosition > windowHeight) {
-                        headerContainer.classList.add('header-hidden');
-                    } else {
-                        headerContainer.classList.remove('header-hidden');
-                    }
+                    const backgroundTransition = document.querySelector('.background-transition');
+                    backgroundTransition.style.opacity = scrollPercentage / 100;
                 };
 
                 window.addEventListener('scroll', handleScroll);
@@ -107,9 +83,6 @@
             return (
                 <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 relative">
                     <div className="background-transition"></div>
-                    <div className="header-container">
-                        <h1 className="text-2xl font-bold text-blue-600">Výlet Svatý Jan pod skalou</h1>
-                    </div>
                     <div className="content-wrapper max-w-2xl mx-auto p-6 rounded-lg shadow-xl mb-8">
                         <h1 className="text-3xl font-bold mb-6 text-center text-blue-600" data-aos="fade-down">Harmonogram výletu</h1>
                         
@@ -227,10 +200,6 @@
                     {/* GIF vlevo dole */}
                     <div className="fixed bottom-4 left-4 w-24 h-24 overflow-hidden rounded-full shadow-lg">
                         <div className="tenor-gif-embed" data-postid="27335722" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
-                    </div>
-
-                    <div className="footer-container">
-                        <h1 className="text-2xl font-bold text-blue-600">Výlet Svatý Jan pod skalou</h1>
                     </div>
                 </div>
             );
